@@ -1,0 +1,10 @@
+<% provide :title, "Help" %>
+<html>
+  <head>
+    <title><%= yield(:title) %> | <%= t"views.base_title" %></title>
+  </head>
+  <body>
+    <h1><%= t"views.help" %></h1>
+    <p><%= t"views.message_help" %></p>
+  </body>
+</html>
