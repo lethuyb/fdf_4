@@ -21,3 +21,16 @@
 
 en:
   hello: "Hello world"
+  views:
+    home: "Welcome to the Food and Drink Website"
+    food: "Food and drink"
+    base_title: "Food and Drink Website"
+    footer_title: "Food and Drink Web designed by Framgia Team"
+    home_link: "Home"
+    category_link: "Category"
+    signup_link: "Sign up"
+    signin_link: "Sign in"
+    aboutus: "About Us"
+    contact: "Contact"
+    help: "Help"
+    message_help: "Comming soon!"
