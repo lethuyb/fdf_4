@@ -34,3 +34,13 @@ en:
     contact: "Contact"
     help: "Help"
     message_help: "Comming soon!"
+  signin:
+      title: "Sign in"
+      new_user: "New user ?"
+      new_signup: "Sign up now!"
+      fail_signin_flash: "Email or password is not correct"
+  signup:
+      title: "Sign up"
+      submit: "Create my account"
+  flash:
+      message: "Welcome to the Food and Drink web"
