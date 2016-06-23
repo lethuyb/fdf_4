@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160622072349) do
     t.integer  "users_id"
     t.integer  "products_id"
     t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "product_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160622072349) do
     t.integer  "users_id"
     t.integer  "quantilyOrdered"
     t.float    "priceEach"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -42,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160622072349) do
     t.float    "total"
     t.boolean  "status"
     t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,13 +58,15 @@ ActiveRecord::Schema.define(version: 20160622072349) do
     t.string   "images"
     t.string   "rating"
     t.integer  "crategories"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "crategories_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "suggests", force: :cascade do |t|
     t.integer  "users_id"
     t.text     "suggest"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

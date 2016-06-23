@@ -1,8 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
-
 body {
   padding-top: 80px;
   font-family: 'Roboto', sans-serif;
@@ -23,8 +21,6 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
-
-/* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -51,7 +47,6 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
 .logo {
    float: left;
   margin-right: 10px;
@@ -67,11 +62,7 @@ p {
   }
 }
 
-/* Footer */
 footer {
-  position: fixed;
-  bottom: 50px;
-  width: 100%;
   margin-top: 100px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
@@ -87,4 +78,18 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
