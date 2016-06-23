@@ -26,11 +26,28 @@ en:
     food: "Food and drink"
     base_title: "Food and Drink Website"
     footer_title: "Food and Drink Web designed by Framgia Team"
+
     home_link: "Home"
     category_link: "Category"
     signup_link: "Sign up"
     signin_link: "Sign in"
+
     aboutus: "About Us"
     contact: "Contact"
     help: "Help"
     message_help: "Comming soon!"
+
+    remember_me: "Remember me on this computer"
+  signin:
+    title: "Sign in"
+    new_user: "New user ?"
+    new_signup: "Sign up now!"
+    fail_signin_flash: "Email or password is not correct"
+    signed_in_header: "My Account"
+    orders: "My Orders"
+    profile: "Profile"
+    setting: "Setting"
+  signout:
+    signout_button: "Sign out"
+  signup:
+    title: "Sign up"
