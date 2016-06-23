@@ -7,8 +7,8 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :quantily
       t.string :images
       t.string :rating
-      t.integer :crategories
-      t.references :crategories
+      t.integer :categories
+      t.references :categories
 
       t.timestamps null: false
     end
