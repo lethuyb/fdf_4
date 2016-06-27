@@ -7,6 +7,7 @@ class CreateOrderDetails < ActiveRecord::Migration
       t.integer :quantilyOrdered
       t.float :priceEach
       t.references :user
+
       t.timestamps null: false
     end
   end

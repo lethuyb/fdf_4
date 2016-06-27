@@ -1,0 +1,19 @@
+<%= will_paginate @products %>
+<div class="section group">
+  <br>
+  <% @products.each do |product| %>
+    <div class ="row">
+      <div class ="css_image">
+        <% if product.images.present? %>
+          <%= link_to image_tag(product.images), products_path %>
+        <% else %>
+          <%= link_to image_tag(Settings.products.url), product %>
+      <% end %>
+      </div>
+      <h4><%= link_to product.productName, "#" %></h4>
+      <p><%= product.quantily %></p>
+      <p><%= product.description %></p>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate @products %>
