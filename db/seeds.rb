@@ -10,10 +10,4 @@ Categories.create categoryName: "Drink"
     categories_id: 1
 end
 
-Product.create productName: "che khuc bach"
-Product.create price: 20000
-Product.create description: "hap dan"
-Product.create quantily: 10
-Product.create images: "/assets/dr9.jpeg"
-Product.create rating: "Tuyet voi"
-Product.create categories_id: 2
+
