@@ -15,40 +15,42 @@ ActiveRecord::Schema.define(version: 20160622072349) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "categoryName"
-    t.string   "string"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "products_id"
     t.text     "comment"
     t.integer  "user_id"
     t.integer  "product_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "comments", ["product_id"], name: "index_comments_on_product_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "order_details", force: :cascade do |t|
-    t.integer  "products_id"
-    t.integer  "orders_id"
-    t.integer  "users_id"
     t.integer  "quantilyOrdered"
     t.float    "priceEach"
-    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "order_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_index "order_details", ["order_id"], name: "index_order_details_on_order_id"
+  add_index "order_details", ["product_id"], name: "index_order_details_on_product_id"
+
   create_table "orders", force: :cascade do |t|
     t.float    "total"
     t.boolean  "status"
-    t.integer  "users_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "productName"
@@ -57,14 +59,14 @@ ActiveRecord::Schema.define(version: 20160622072349) do
     t.integer  "quantily"
     t.string   "images"
     t.string   "rating"
-    t.integer  "crategories"
-    t.integer  "crategories_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "categories_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
+  add_index "products", ["categories_id"], name: "index_products_on_categories_id"
+
   create_table "suggests", force: :cascade do |t|
-    t.integer  "users_id"
     t.text     "suggest"
     t.integer  "user_id"
     t.datetime "created_at", null: false

@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.float :total
       t.boolean :status
-      t.integer :users_id
+      t.references :user
       t.references :user
 
       t.timestamps null: false

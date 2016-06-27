@@ -137,3 +137,15 @@ input {
     color: $state-danger-text;
   }
 }
+
+.row{
+  width: 300px;
+  float: left;
+  height: 320px;
+  margin-left:40px;
+  margin-bottom : 20px;
+  margin-right: 20px;
+  border: 1px solid #bbb;
+
+  background-color : #bbb;
+}
