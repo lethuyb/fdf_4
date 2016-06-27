@@ -1,8 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :categories
   has_many :order_details
-
-  validates :productName, presence: true
+  validates :product_name, presence: true
   validates :price, presence: true
   validates :description, presence: true, length: {maximum: 150}
   validates :quantity, presence: true
