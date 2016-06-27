@@ -36,7 +36,6 @@ en:
     contact: "Contact"
     help: "Help"
     message_help: "Comming soon!"
-
     remember_me: "Remember me on this computer"
   signin:
     title: "Sign in"
@@ -49,5 +48,12 @@ en:
     setting: "Setting"
   signout:
     signout_button: "Sign out"
+
   signup:
     title: "Sign up"
+    submit: "Create my account"
+  flash:
+    message: "Welcome to the Food and Drink web"
+  error_messages:
+    errors: "error"
+    message: "The form contains"

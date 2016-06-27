@@ -7,7 +7,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("views.home_link"), root_path %></li>
         <li><%= link_to t("views.category_link"), "#" %></li>
-        <li><%= link_to t("views.signup_link"), "#" %></li>
+        <li><%= link_to t("views.signup_link"), signup_path %></li>
         <% if signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -16,10 +16,11 @@
             <ul>
               <li><%= link_to t("signin.orders"), current_user %></li>
               <li><%= link_to t("signin.profile"), current_user %></li>
-              <li><%= link_to t("signin.setting", '#') %></li>
+              <li><%= link_to t("signin.setting"), "#" %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("signout.signout_button"), signout_path, method: "delete" %>
+                <%= link_to t("signout.signout_button"), signout_path,
+                  method: "delete" %>
               </li>
             </ul>
           </li>
