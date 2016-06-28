@@ -3,8 +3,7 @@ class CreateOrders < ActiveRecord::Migration
     create_table :orders do |t|
       t.float :total
       t.boolean :status
-      t.references :user
-      t.references :user
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
