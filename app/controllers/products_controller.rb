@@ -12,4 +12,11 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
   end
+  def show
+    @product = Product.find_by_id params[:id]
+    if @product.nil?
+      flash[:danger] = t "flash.no_image"
+      redirect_to products_path
+    end
+  end
 end

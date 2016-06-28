@@ -1,0 +1,14 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= gravatar_for @user %>
+    </section>
+    <section>
+      <p><%= t "user.show.name" %><%= @user.name %></p><br>
+      <p><%= t "user.show.address" %><%= @user.address %></p><br>
+      <p><%= t "user.show.phone" %><%= @user.phone %></p><br>
+      <p><%= t "user.show.email" %><%= @user.email %></p><br>
+    </section>
+  </aside>
+</div>

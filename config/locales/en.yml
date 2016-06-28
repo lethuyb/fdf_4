@@ -38,6 +38,20 @@ en:
     errors: "error"
     message: "The form contains"
 
+  user:
+    edit:
+      title: "Update user"
+      header: "Edit your profile"
+      save_changes: "Save changes"
+      profile_updated: "Profile updated"
+    authorization:
+      message: "Please sign in."
+    show:
+      name: "Name: "
+      address: "Address: "
+      phone: "Phone Number: "
+      email: "Email: "
+
   suggestion:
     title: "Suggestion"
     post: "Posted : "
@@ -80,4 +94,3 @@ application:
 models:
   products:
     validate_images: "Should be less than 5MB."
-
