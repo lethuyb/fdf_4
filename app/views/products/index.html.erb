@@ -8,9 +8,10 @@
           <%= link_to image_tag(product.images), products_path %>
         <% else %>
           <%= link_to image_tag(Settings.products.url), product %>
-      <% end %>
+        <% end %>
       </div>
-      <h4><%= link_to product.productName, "#" %></h4>
+      <h4><%= link_to product.productName, product_path(product) %></h4>
+      <p><%= product.price %></p>
       <p><%= product.quantily %></p>
       <p><%= product.description %></p>
     </div>
