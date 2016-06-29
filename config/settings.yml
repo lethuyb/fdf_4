@@ -1,5 +1,12 @@
-  per_page: 9
+per_page: 9
+products:
+  page: 9
+  size: "200x250"
+  url: "/assets/dr9.jpeg"
+
+admin:
   products:
-    page: 9
-    size: "200x250"
-    url: "/assets/dr9.jpeg"
+    page: 10
+    size: "150x150"
+    url: "/assets/dr9.jpg"
+    images_size: 5

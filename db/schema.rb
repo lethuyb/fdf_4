@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160629012605) do
     t.string   "productName"
     t.float    "price"
     t.string   "description"
-    t.integer  "quantily"
+    t.integer  "quantity"
     t.string   "images"
     t.string   "rating"
     t.integer  "categories_id"
