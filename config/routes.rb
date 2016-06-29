@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :suggests, only: [:index, :create]
 
   namespace :admin do
+
     root "products#index"
     resources :products, only: [:show, :upadte, :index, :create, :new, :edit]
+
   end
 end

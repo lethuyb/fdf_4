@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action: load_category, only:[:new, :edit]
-  before_action: find_product, only:[:edit, :show]
+  before_action: find_product, only:[:edit, :show, :destroy]
+
   def index
     @products = Product.order(:created_at).paginate page: params[:page],
       per_page: Settings.per_page
@@ -18,6 +19,14 @@ class Admin::ProductsController < ApplicationController
     else
       render :new
     end
+  end
+  def destroy
+    if @product.destroy
+      flash[:success] = t "application.flash.products.destroy_success"
+    elsif @product.nil?
+      flash[:danger] = t "application.flash.product.no_destroy"
+    end
+    redirect_to admin_products_path
   end
 
   def edit
