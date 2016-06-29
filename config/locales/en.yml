@@ -37,6 +37,7 @@ en:
   error_messages:
     errors: "error"
     message: "The form contains"
+
   suggestion:
     title: "Suggestion"
     post: "Posted : "
@@ -46,3 +47,37 @@ en:
     button: "Post"
     created: "Suggestion created!"
     not_created: "Suggestion not created!"
+
+
+  admin:
+    products:
+      table:
+        id: "ID"
+        images: "Images"
+        productName: "Name"
+        description: "Description"
+        price: "Price"
+        quantity: "Quantily"
+        rating: "Rating"
+        edit: "Edit"
+        delete: "Delete"
+        add: "Add"
+
+      new:
+        product: "Create a new product."
+      index:
+      add: "Add a new product"
+    messages:
+      confirm: "Are you sure?"
+    submit: "Submit"
+    back: "Back"
+
+application:
+  flash:
+    products:
+      create_success: "New product has been created."
+
+models:
+  products:
+    validate_images: "Should be less than 5MB."
+

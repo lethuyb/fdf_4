@@ -1,0 +1,52 @@
+<div id="btntop" style="display: hidden;">
+  <a href="#top" id="top">
+    <span>
+      <%= link_to t("admin.products.table.add"), new_admin_product_path,
+        class: "btn btn-md btn-primary" %>
+    </span>
+  </a>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.products.table.id" %></th>
+      <th><%= t "admin.products.table.images" %></th>
+      <th><%= t "admin.products.table.productName" %></th>
+      <th><%= t "admin.products.table.description" %></th>
+      <th><%= t "admin.products.table.price" %></th>
+      <th><%= t "admin.products.table.quantity" %></th>
+      <th><%= t "admin.products.table.rating" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td>
+          <% if product.images.present? %>
+            <%= link_to image_tag(product.images,
+              size: Settings.admin.products.images_size), product %>
+          <% else %>
+            <%= link_to image_tag(Settings.admin.products.url,
+              size: Settings.admin.products.images_size), product %>
+          <% end %>
+        </td>
+        <td><%= link_to product.productName, "#" %></td>
+        <td><%= product.description.truncate(50) %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.rating %></td>
+        <td><%= product.images %></td>
+        <td>
+          <%= link_to t("admin.products.table.edit"), "#",
+            class: "btn btn-primary" %>
+          <%= link_to t("admin.products.table.delete"), "#",
+            class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @products %>

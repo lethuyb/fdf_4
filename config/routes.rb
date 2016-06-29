@@ -10,5 +10,12 @@ Rails.application.routes.draw do
   get "signin"  => "sessions#new"
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy"
+
   resources :suggests, only: [:index, :create]
+
+  namespace :admin do
+    root "products#index"
+    resources :products, only: [:index, :create, :new]
+  end
+
 end

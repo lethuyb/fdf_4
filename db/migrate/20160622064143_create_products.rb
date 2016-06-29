@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :productName
       t.float :price
       t.string :description
-      t.integer :quantily
+      t.integer :quantity
       t.string :images
       t.string :rating
       t.references :categories, index: true, foreign_key: true
