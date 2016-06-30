@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @comment  do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.text_area :comment, class: "form-control",
+        required: "true" %>
+        </br>
+      <%= f.submit t("comments.submit"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "signin"  => "sessions#new"
   post "signin" => "sessions#create"
   delete "signout" => "sessions#destroy"
+  resources :comments, only: [:create, :new, :show]
 
   resources :suggests, only: [:index, :create]
 
