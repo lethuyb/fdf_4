@@ -54,7 +54,7 @@ en:
       table:
         id: "ID"
         images: "Images"
-        productName: "Name"
+        product_name: "Name"
         description: "Description"
         price: "Price"
         quantity: "Quantily"
