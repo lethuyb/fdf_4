@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3><%= t "admin.products.table.product_name" %> <%= @product.product_name %></h3>
+    <p> <%= t "admin.products.table.description" %> <%= @product.description %> </p>
+    <p> <%= t "admin.products.table.price" %> <%= @product.price %> </p>
+    <p> <%= t "admin.products.table.quantity" %> <%= @product.quantity %> </p>
+    <p> <%= t "admin.products.table.rating" %> <%= @product.rating %> </p>
+    <br>
+    <% if @product.images.present? %>
+      <%= link_to image_tag(@product.images,
+        size: Settings.admin.products.images_size), @product %>
+      <% else %>
+      <%= link_to image_tag(Settings.admin.products.url,
+        size: Settings.admin.products.images_size), @product %>
+    <% end %>
+  </div>
+  <br>
+  <%= link_to t("admin.products.edit.edit"), edit_admin_product_path(@product),
+    class: "btn btn-primary" %> |
+  <%= link_to t("admin.products.edit.back"), admin_product_path,
+    class: "btn btn-primary" %>
+</div>

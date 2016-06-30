@@ -12,7 +12,7 @@
     <tr class="info">
       <th><%= t "admin.products.table.id" %></th>
       <th><%= t "admin.products.table.images" %></th>
-      <th><%= t "admin.products.table.productName" %></th>
+      <th><%= t "admin.products.table.product_name" %></th>
       <th><%= t "admin.products.table.description" %></th>
       <th><%= t "admin.products.table.price" %></th>
       <th><%= t "admin.products.table.quantity" %></th>
@@ -33,15 +33,17 @@
               size: Settings.admin.products.images_size), product %>
           <% end %>
         </td>
-        <td><%= link_to product.productName, "#" %></td>
+        <td><%= link_to product.product_name, "#" %></td>
         <td><%= product.description.truncate(50) %></td>
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%= product.rating %></td>
         <td><%= product.images %></td>
         <td>
-          <%= link_to t("admin.products.table.edit"), "#",
+          <%= link_to t("admin.products.table.show"), admin_product_path(product),
             class: "btn btn-primary" %>
+          <%= link_to t("admin.products.table.edit"),
+            edit_admin_product_path(product), class: "btn btn-primary" %>
           <%= link_to t("admin.products.table.delete"), "#",
             class: "btn btn-danger" %>
         </td>
