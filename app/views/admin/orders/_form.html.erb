@@ -1,0 +1,33 @@
+<div class="row">
+  <%= form_for [:admin, @order] do |f| %>
+    <div class="col-md-12">
+      <%= render "shared/error_messages", object: @order %>
+      <div class="col-md-5 col-xs-12 col-sm-5 ">
+        <div class="form-group">
+          <%= f.label :total %>
+          <%= f.number_field :total, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :status %>
+          <%= f.text_field :status, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :users %><br>
+          <%= f.collection_select :user_id, @user, :id, :name %>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-5 ">
+        <br>
+        <br>
+        <div class="form-group">
+          <%= f.submit t("admin.submit"), class: "btn btn-primary" %>
+        </div>
+        <div class="form-group">
+          <%= link_to t("admin.back"), admin_orders_path,
+            class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
