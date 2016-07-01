@@ -86,11 +86,15 @@ en:
     submit: "Submit"
     back: "Back"
 
-application:
-  flash:
-    products:
-      create_success: "New product has been created."
+  application:
+    flash:
+      products:
+        create_success: "New product has been created."
+        destroy_success: "Product has been destroy."
+        no_destroy: "error"
 
-models:
-  products:
-    validate_images: "Should be less than 5MB."
+  models:
+    products:
+      validate_images: "Should be less than 5MB."
+
+
