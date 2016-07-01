@@ -1,0 +1,28 @@
+<div id="btntop" style="display: hidden;">
+
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.users.table.id" %></th>
+      <th><%= t "admin.users.table.name" %></th>
+      <th><%= t "admin.users.table.address" %></th>
+      <th><%= t "admin.users.table.phone" %></th>
+      <th><%= t "admin.users.table.email" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.address %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @users %>
+

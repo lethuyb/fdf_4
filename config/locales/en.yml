@@ -62,7 +62,6 @@ en:
     created: "Suggestion created!"
     not_created: "Suggestion not created!"
 
-
   admin:
     products:
       table:
@@ -86,6 +85,15 @@ en:
     submit: "Submit"
     back: "Back"
 
+    users:
+      table:
+        id: "ID"
+        name: "Name"
+        address: "Address"
+        phone: "Phone number"
+        email: "Email"
+        password: "Password"
+
   application:
     flash:
       products:
@@ -96,5 +104,9 @@ en:
   models:
     products:
       validate_images: "Should be less than 5MB."
+
+
+
+
 
 
