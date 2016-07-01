@@ -27,7 +27,7 @@
         <td><%= order.created_at %></td>
         <td><%= order.user.name %></td>
         <td>
-          <%= link_to t("admin.orders.table.show"), "#",
+          <%= link_to t("admin.orders.table.show"), admin_order_path(order),
             class: "btn btn-primary" %>
 
           <%= link_to t("admin.orders.table.edit"), "#",
