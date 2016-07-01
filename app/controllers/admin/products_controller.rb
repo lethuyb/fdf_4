@@ -1,9 +1,9 @@
 class Admin::ProductsController < ApplicationController
-  before_action: load_category, only:[:new, :edit]
-  before_action: find_product, only:[:edit, :show, :destroy]
+  before_action :load_category, only:[:new, :update]
+  before_action :find_product, only:[:edit, :show, :destroy]
 
   def index
-    @products = Product.order(:created_at).paginate page: params[:page],
+    @products = Product.order(created_at: :desc).paginate page: params[:page],
       per_page: Settings.per_page
   end
 

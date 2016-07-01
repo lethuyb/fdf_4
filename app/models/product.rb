@@ -10,9 +10,9 @@ class Product < ActiveRecord::Base
   validate :images_size
 
   private
-  def picture_size
+  def images_size
     if self.images.size > Settings.admin.products.images_size.megabytes
-      errors.add(:images, t("models.products.validate_images"))
+      errors.(add :images, t("models.products.validate_images"))
     end
   end
 end
