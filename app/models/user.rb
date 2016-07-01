@@ -4,7 +4,12 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :suggests
 
+
   validates :name, presence: true, length: {maximum: 50}
+  validates :address, presence: true, length: {maximum: 100}
+  number_regex = /\d[0-9]\)*\z/
+  validates_format_of :phone, :with =>  number_regex,
+    :message => "only positive number without spaces are allowed"
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 255},
     format: {with: VALID_EMAIL_REGEX},

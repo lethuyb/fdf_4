@@ -83,6 +83,9 @@ en:
         status: "Status"
         created_at: "Creates_at"
         user_id: "Name Customer"
+        quantilyOrder: "Quantity Order"
+        priceEach: "Price Each"
+        name: "Product name"
 
       new:
         product: "Create a new product."
