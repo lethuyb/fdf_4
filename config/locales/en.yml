@@ -76,6 +76,14 @@ en:
         delete: "Delete"
         add: "Add"
 
+    orders:
+      table:
+        id: "ID"
+        total: "Total"
+        status: "Status"
+        created_at: "Creates_at"
+        user_id: "Name Customer"
+
       new:
         product: "Create a new product."
       index:

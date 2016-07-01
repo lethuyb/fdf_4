@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-
-  belongs_to :order
+  has_many :orders
   has_many :comments
   has_many :suggests
 
