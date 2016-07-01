@@ -1,0 +1,41 @@
+<div id="btntop" style="display: hidden;">
+  <a href="#top" id="top">
+    <span>
+      <%= link_to t("admin.orders.table.add"), "#",
+        class: "btn btn-md btn-primary" %>
+    </span>
+  </a>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr class="info">
+      <th><%= t "admin.orders.table.id" %></th>
+      <th><%= t "admin.orders.table.total" %></th>
+      <th><%= t "admin.orders.table.status" %></th>
+      <th><%= t "admin.orders.table.created_at" %></th>
+      <th><%= t "admin.orders.table.user_id" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.total %></td>
+        <td><%= order.status %></td>
+        <td><%= order.created_at %></td>
+        <td><%= order.user.name %></td>
+        <td>
+          <%= link_to t("admin.orders.table.show"), "#",
+            class: "btn btn-primary" %>
+
+          <%= link_to t("admin.orders.table.edit"), "#",
+          class: "btn btn-primary" %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @orders %>
