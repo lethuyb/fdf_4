@@ -28,7 +28,7 @@ end
   user_id: 2
 end
 12.times do |n|
-  OrderDetail.create! quantilyOrdered: (n+1),
+  OrderDetail.create! quantityOrdered: (n+1),
   priceEach: (n+10000),
   product_id: (n+1),
   order_id: 1

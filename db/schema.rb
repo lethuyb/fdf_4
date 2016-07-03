@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160701023147) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "order_details", force: :cascade do |t|
-    t.integer  "quantilyOrdered"
+    t.integer  "quantityOrdered"
     t.float    "priceEach"
+    t.float    "total_price"
     t.integer  "product_id"
     t.integer  "order_id"
     t.datetime "created_at",      null: false
