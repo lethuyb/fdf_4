@@ -7,7 +7,7 @@ Categories.create category_name: "Drink"
     quantity: 20,
     images: "/assets/dr9.jpeg",
     rating: "5",
-    categories_id: 1
+    category_id: 1
 end
 
 10.times do |n|
