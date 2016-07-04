@@ -71,8 +71,7 @@ en:
     total_price: "Total Price: "
     update_quantity: "Update Quantity"
     delete: "Delete"
-    line_delete: "Are you sure you wish to delete the product "
-    line_delete2: "\"%{name}\"from your cart?"
+    line_delete: "Are you sure delete the product \"%{name}\" from your cart?"
     go_back: "go back"
     item: "Items in Cart"
 
