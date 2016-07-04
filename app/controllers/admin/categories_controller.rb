@@ -22,6 +22,15 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "admin.categories.update_success"
+      redirect_to admin_categories_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @category.destroy
       flash[:success] = t "admin.categories.delete_success"
