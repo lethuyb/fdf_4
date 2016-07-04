@@ -9,7 +9,13 @@ Categories.create category_name: "Drink"
     rating: "5",
     categories_id: 1
 end
-15.times do |u|
+
+10.times do |n|
+  Comment.create! product_id: (n+1),
+    user_id: 1,
+    comment: "hap dan qua#{n+1}"
+end
+5.times do |u|
   User.create! name: "User" + (u+1).to_s,
   address: "nghe an",
   phone: "242431",
@@ -28,7 +34,7 @@ end
   user_id: 2
 end
 12.times do |n|
-  OrderDetail.create! quantilyOrdered: (n+1),
+  OrderDetail.create! quantityOrdered: (n+1),
   priceEach: (n+10000),
   product_id: (n+1),
   order_id: 1

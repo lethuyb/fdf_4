@@ -116,8 +116,9 @@ en:
     products:
       validate_images: "Should be less than 5MB."
 
-
-
-
+  comments:
+    comment: "you commented successful"
+    error: "error"
+    submit: "Comment"
 
 

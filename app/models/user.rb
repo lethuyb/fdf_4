@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
     update_attributes remember_digest: nil
   end
 
-  def current_user? user
-    user == current_user
+  def current_user? current_user
+    self == current_user
   end
+
 end

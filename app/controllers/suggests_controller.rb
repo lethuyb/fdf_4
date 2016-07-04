@@ -1,5 +1,5 @@
 class SuggestsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :create]
+  before_action :signed_in_user, only: [:index, :create]
 
   def index
     @suggest = Suggest.new
