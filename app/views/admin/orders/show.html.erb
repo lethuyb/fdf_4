@@ -2,10 +2,10 @@
   <div class="row">
     <% @order.order_details.each do |order_detail| %>
       <h3><%= t "admin.orders.table.quantilyOrdered" %>
-        <%= order_detail.quantilyOrdered %>
+        <%= order_detail.quantily_ordered %>
       </h3>
       <p> <%= t "admin.orders.table.priceEach" %>
-        <%= order_detail.priceEach %>
+        <%= order_detail.price_each %>
       </p>
       <p> <%= t "admin.orders.table.name" %>
         <%= order_detail.product.product_name %>

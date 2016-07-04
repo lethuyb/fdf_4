@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order(created_at: :desc).paginate page: params[:page],
       per_page: Settings.per_page
+    @order_detail = current_order.order_details.new
   end
 
   def show

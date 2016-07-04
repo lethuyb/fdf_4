@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete "signout" => "sessions#destroy"
   resources :comments, only: [:create, :new, :show]
   resources :suggests, only: [:index, :create]
+  resource :order, only: [:show]
+  resources :order_details, only: [:create]
 
   namespace :admin do
     root "products#index"

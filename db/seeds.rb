@@ -1,5 +1,5 @@
-Categories.create category_name: "Food"
-Categories.create category_name: "Drink"
+Category.create category_name: "Food"
+Category.create category_name: "Drink"
 20.times do |n|
   Product.create! price:  (n+1),
     product_name: "Che Tuyet#{n+1}",
@@ -34,8 +34,8 @@ end
   user_id: 2
 end
 12.times do |n|
-  OrderDetail.create! quantityOrdered: (n+1),
-  priceEach: (n+10000),
+  OrderDetail.create! quantity_ordered: (n+1),
+  price_each: (n+10000),
   product_id: (n+1),
   order_id: 1
 end

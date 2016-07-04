@@ -1,20 +1,22 @@
 <li id="product-<%= @product.id %>">
   <span class="image-show"><%= link_to image_tag(@product.images),
     products_path %>
-  </span><br>
-  <center>
-    <span class="name">
-      <%= @product.product_name %>
-    </span>
-  </center><br>
+  </span></br></br>
+  <span class="name">
+    <%= @product.product_name %>
+  </span></br>
   <span class="description">
     <%= @product.description %>
-  </span><br>
+  </span></br>
   <span class="price">
     <%= @product.price %>
-  </span><br>
+  </span></br>
   <span class="number">
     <%= t("product.quantity") %>
     <%= @product.quantity %>
-  </span><br>
+  </span></br>
+  <span>
+    <%= link_to t("admin.products.table.addcart"), "#",
+      class: "btn btn-primary" %>
+  </span>
 </li>

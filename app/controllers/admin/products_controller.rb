@@ -48,11 +48,11 @@ class Admin::ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit :product_name, :price,  :description,
-      :quantity, :images, :rating, :categories_id
+      :quantity, :images, :rating, :category_id
   end
 
   def load_category
-    @categories = Categories.all
+    @categories = Category.all
   end
 
   def find_product

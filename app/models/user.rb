@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :comments
   has_many :suggests
-
-
   validates :name, presence: true, length: {maximum: 50}
   validates :address, presence: true, length: {maximum: 100}
   number_regex = /\d[0-9]\)*\z/

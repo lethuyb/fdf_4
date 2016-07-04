@@ -62,6 +62,20 @@ en:
     created: "Suggestion created!"
     not_created: "Suggestion not created!"
 
+  order:
+    products_for_sale: "Products for Sale"
+    add_to_cart: "Add to Cart"
+    unit_price: "Unit Price: "
+    line_empty: "There are no items in your shopping cart."
+    line_empty2: " Please %{link} and add some items to your cart"
+    total_price: "Total Price: "
+    update_quantity: "Update Quantity"
+    delete: "Delete"
+    line_delete: "Are you sure you wish to delete the product "
+    line_delete2: "\"%{name}\"from your cart?"
+    go_back: "go back"
+    item: "Items in Cart"
+
   admin:
     error_message: "You are not authorized to view that page."
     edit: "Edit"
@@ -93,6 +107,7 @@ en:
         edit: "Edit"
         delete: "Delete"
         add: "Add"
+        addcart: "Buy"
 
     orders:
       table:
