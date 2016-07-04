@@ -11,6 +11,20 @@ class OrderDetailsController < ApplicationController
     end
   end
 
+  def update
+    @order = current_order
+    @order_detail = @order.order_details.find_by id: params[:id]
+    @order_detail.update_attributes order_detail_params
+    @order_details = @order.order_details
+  end
+
+  def destroy
+    @order = current_order
+    @order_detail = @order.order_details.find_by id: params[:id]
+    @order_detail.destroy
+    @order_details = @order.order_details
+  end
+
   private
   def order_detail_params
     params.require(:order_detail).permit :quantity_ordered, :product_id
