@@ -1,4 +1,5 @@
 class Admin::SuggestsController < ApplicationController
+  before_action :signed_in_user, :check_admin
   before_action :find_suggest, only:[:destroy]
 
   def index
