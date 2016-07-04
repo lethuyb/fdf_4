@@ -28,7 +28,7 @@
             <div class="btn-group">
               <%= f.submit t("order.update_quantity"),
                 class: "btn btn-primary" %>
-              <%= link_to t("order.delete"), "#",
+              <%= link_to t("order.delete"), order_detail,
                 data: {confirm: t("order.line_delete",
                   name: order_detail.product.product_name)},
                   method: :delete, remote: true, class: "btn btn-danger" %>
