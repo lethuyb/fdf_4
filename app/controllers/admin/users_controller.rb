@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
   before_action :signed_in_user, :check_admin
-  before_action :load_user, only: [:show, :edit, :update]
 
   def show
   end
@@ -11,15 +10,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-  end
-
-  def update
-    if @user.update_attributes user_params
-      flash[:success] = t "user.edit.profile_updated"
-      redirect_to admin_users_path
-    else
-      render :edit
-    end
   end
 
   private

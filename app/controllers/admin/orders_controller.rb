@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_action :signed_in_user, :check_admin
   before_action :find_order, only:[:show]
   def index
     @orders = Order.order(created_at: :desc).paginate page: params[:page],

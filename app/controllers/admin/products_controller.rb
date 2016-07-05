@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_action :signed_in_user, :check_admin
   before_action :load_category, only:[:new, :update]
   before_action :find_product, only:[:edit, :show, :destroy]
 
