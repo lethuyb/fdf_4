@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :signed_in_user, :check_admin
-  before_action :load_category, only:[:new, :update]
-  before_action :find_product, only:[:edit, :show, :destroy]
+  before_action :load_category, only:[:new, :update, :edit]
+  before_action :find_product, except:[:new, :create, :edit]
 
   def index
     @products = Product.order(created_at: :desc).paginate page: params[:page],
@@ -34,6 +34,9 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find_by id: params[:id]
+    @comments = @product.comments.order(created_at: :desc).paginate page:
+      params[:page], per_page: Settings.per_page
   end
 
   def update
@@ -57,6 +60,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def find_product
-    @product=Product.find_by id: params[:id]
+    @product = Product.find_by id: params[:id]
   end
 end

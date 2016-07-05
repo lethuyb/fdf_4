@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     else
       flash[:danger] = t "order.order_failed"
     end
-    redirect_to current_user
+    redirect_to orders_path(current_user)
   end
 
   private
