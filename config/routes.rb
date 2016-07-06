@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :products, only: [ :index, :show]
 
   get "users/new"
-  resources :users
+  resources :users do
+    resources :orders, only: [:index]
+  end
 
   root "static_pages#home"
   get "home" =>"static_pages#home"

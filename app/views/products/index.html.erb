@@ -14,11 +14,14 @@
         <p><%= product.description %></p>
         <div class="col-xs-4">
           <%= form_for @order_detail, remote: true do |f| %>
-          <h4> <class="text-right"><%= t("order.unit_price")%>
-            <span style="color: green"><%= number_to_currency product.price %></span>
+          <h4><class="text-right"><%= t("order.unit_price")%>
+            <span style="color: green">
+              <%= number_to_currency product.price %>
+            </span>
           </h4>
           <div class="input-group">
-            <%= f.number_field :quantity_ordered, value: 1, class: "form-control", min: 1 %>
+            <%= f.number_field :quantity_ordered, value: 1,
+             class: "form-control", min: 1 %>
             <div class="input-group-btn">
               <%= f.hidden_field :product_id, value: product.id %>
               <%= f.submit "Add to Cart", class: "btn btn-primary" %>
@@ -31,14 +34,9 @@
   </div>
   <%= will_paginate @products %>
 </div>
-
-<h3 class="text-center"><%= t "order.products_for_sale" %></h3>
-<div class="row">
-  <div class="col-xs-4 col-xs-offset-8">
-    <div class="text-right">
-      <h4 class="order-text">
-        <%= render "layouts/order_text" %>
-      </h4>
-    </div>
-  </div>
+<div>
+  <h2 class="text-center" style="color: green"><%= t "order.customer_cart" %></h2>
+  <h3 class="order-text">
+    <%= render "layouts/order_text" %>
+  </h3>
 </div>
