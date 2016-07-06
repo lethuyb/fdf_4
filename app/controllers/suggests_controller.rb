@@ -6,7 +6,7 @@ class SuggestsController < ApplicationController
   end
 
   def create
-    @suggest = current_user.suggest.build suggestion_params
+    @suggest = current_user.suggests.build suggestion_params
     if @suggest.save
       flash[:success] = t "suggestion.created"
     else
@@ -17,6 +17,6 @@ class SuggestsController < ApplicationController
 
   private
   def suggestion_params
-    params.require(:suggest).permit :suggest
+    params.require(:suggest).permit :suggest, :user_id
   end
 end
