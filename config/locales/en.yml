@@ -63,6 +63,7 @@ en:
     not_created: "Suggestion not created!"
 
   order:
+    id: "ID"
     products_for_sale: "Products for Sale"
     add_to_cart: "Add to Cart"
     unit_price: "Unit Price: "
@@ -88,6 +89,7 @@ en:
     no_item: "No Item"
     accept: "Items in Cart"
     showdetailorder: "%{size} Items in Cart %{total_pay}"
+    customer_cart: "Your Cart"
   admin:
     error_message: "You are not authorized to view that page."
     edit: "Edit"
