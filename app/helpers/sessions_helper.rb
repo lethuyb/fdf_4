@@ -19,6 +19,7 @@ module SessionsHelper
   def sign_out
     forget current_user
     session.delete :user_id
+    session.delete :order_id
     @current_user = nil
   end
 

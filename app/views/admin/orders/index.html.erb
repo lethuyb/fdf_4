@@ -1,31 +1,30 @@
-<div id="btntop" style="display: hidden;">
-</div>
-
-<table class="table table-hover">
-  <thead>
-    <tr class="info">
-      <th><%= t "admin.orders.table.id" %></th>
-      <th><%= t "admin.orders.table.total" %></th>
-      <th><%= t "admin.orders.table.status" %></th>
-      <th><%= t "admin.orders.table.created_at" %></th>
-      <th><%= t "admin.orders.table.user_id" %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= order.total %></td>
-        <td><%= order.status %></td>
-        <td><%= order.created_at %></td>
-        <td><%= order.user.name %></td>
-        <td>
-          <%= link_to t("admin.orders.table.show"), admin_order_path(order),
-            class: "btn btn-primary" %>
-        </td>
+<div class="content container">
+  <table class="table table-hover">
+    <thead>
+      <tr class="info">
+        <th><%= t "admin.orders.table.id" %></th>
+        <th><%= t "admin.orders.table.total" %></th>
+        <th><%= t "admin.orders.table.status" %></th>
+        <th><%= t "admin.orders.table.created_at" %></th>
+        <th><%= t "admin.orders.table.user_id" %></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @orders %>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.total %></td>
+          <td><%= order.status %></td>
+          <td><%= order.created_at %></td>
+          <td><%= order.user.try :name %></td>
+          <td>
+            <%= link_to t("admin.orders.table.show"), admin_order_path(order),
+              class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @orders %>
+</div>

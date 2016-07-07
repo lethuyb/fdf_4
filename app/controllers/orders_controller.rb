@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user , only:[:update]
   before_action :find_order, only:[:show]
 
   def index
@@ -13,8 +13,8 @@ class OrdersController < ApplicationController
 
   def update
     @order = current_order
-    @order.user = current_user
-    if @order.update_attributes status: true
+    # @order.user = current_user
+    if @order.update_attributes status: true, user: current_user
       session.delete :order_id
       flash[:success] = t "order.thanks_order"
     else

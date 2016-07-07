@@ -1,4 +1,7 @@
 class OrderDetailsController < ApplicationController
+  def show
+  end
+
   def create
     @order = current_order
     @order_detail = @order.order_details.new order_detail_params
@@ -6,7 +9,7 @@ class OrderDetailsController < ApplicationController
     @order.save
     session[:order_id] = @order.id
     respond_to do |format|
-      format.html {redirect_to @order_detail}
+      format.html {redirect_to products_path}
       format.js
     end
   end

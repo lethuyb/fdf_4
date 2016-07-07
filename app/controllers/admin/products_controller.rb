@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
   before_action :signed_in_user, :check_admin
-  before_action :load_category, only:[:new, :update, :edit]
-  before_action :find_product, except:[:new, :create, :edit]
+  before_action :load_category, only:[:new, :update, :create, :edit]
+  before_action :find_product, except:[:new, :create]
 
   def index
     @products = Product.order(created_at: :desc).paginate page: params[:page],
@@ -21,11 +21,12 @@ class Admin::ProductsController < ApplicationController
       render :new
     end
   end
+
   def destroy
     if @product.destroy
       flash[:success] = t "application.flash.products.destroy_success"
-    elsif @product.nil?
-      flash[:danger] = t "application.flash.product.no_destroy"
+    else
+      flash[:danger] = t "application.flash.products.no_destroy"
     end
     redirect_to admin_products_path
   end
