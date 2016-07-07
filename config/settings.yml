@@ -3,11 +3,11 @@ price_step: 0.01
 products:
   page: 9
   size: "200x250"
-  url: "/assets/dr9.jpeg"
+  url: "/assets/images/orange.png"
 
 admin:
   products:
     page: 10
     size: "150x150"
-    url: "/assets/dr9.jpg"
+    url: "/assets/images/orange.png"
     images_size: 5

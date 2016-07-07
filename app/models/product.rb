@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :categories
   has_many :order_details
   validates :product_name, presence: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :price, presence: true
   validates :description, presence: true, length: {maximum: 150}
