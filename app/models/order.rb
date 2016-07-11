@@ -1,6 +1,9 @@
 class Order < ActiveRecord::Base
   belongs_to :user
+
   has_many :order_details
+  has_many :products, through: :order_details
+
   before_save :update_total_pay
 
   def total_pay

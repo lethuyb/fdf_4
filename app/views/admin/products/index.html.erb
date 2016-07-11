@@ -1,56 +1,78 @@
-<div id="btntop" style="display: hidden;">
-  <a href="#top" id="top">
-    <span>
-      <%= link_to t("admin.products.table.add"), new_admin_product_path,
-        class: "btn btn-md btn-primary" %>
-    </span>
-  </a>
-</div>
-
-<table class="table table-hover">
-  <thead>
-    <tr class="info">
-      <th><%= t "admin.products.table.id" %></th>
-      <th><%= t "admin.products.table.images" %></th>
-      <th><%= t "admin.products.table.product_name" %></th>
-      <th><%= t "admin.products.table.description" %></th>
-      <th><%= t "admin.products.table.price" %></th>
-      <th><%= t "admin.products.table.quantity" %></th>
-      <th><%= t "admin.products.table.rating" %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td>
-          <% if product.images.present? %>
-            <%= link_to image_tag(product.images,
-              size: Settings.admin.products.images_size), product %>
-          <% else %>
-            <%= link_to image_tag(Settings.admin.products.url,
-              size: Settings.admin.products.images_size), product %>
-          <% end %>
-        </td>
-        <td><%= link_to product.product_name, "#" %></td>
-        <td><%= product.description.truncate(50) %></td>
-        <td><%= product.price %></td>
-        <td><%= product.quantity %></td>
-        <td><%= product.rating %></td>
-        <td><%= product.images %></td>
-        <td>
-          <%= link_to t("admin.products.table.show"),
-            admin_product_path(product), class: "btn btn-primary" %>
-          <%= link_to t("admin.products.table.edit"),
-            edit_admin_product_path(product), class: "btn btn-primary" %>
-          <%= link_to t("admin.products.table.delete"),
-            admin_product_path(product), method: :delete,
-            data: {confirm: t("admin.messages.confirm")},
-            class: "btn btn-danger" %>
-        </td>
-      </tr>
+<div class="search_form">
+  <div class="col-sm-8 col-sm-offset-2"
+    style="margin-left: 10px; margin-bottom: 10px">
+    <%= form_tag products_path, method: :get, class: "input-group" do %>
+      <%= text_field_tag :product_name, params[:product_name],
+        placeholder: t("search_products.search_placeholder") %>
+      <%= number_field_tag :price, params[:price], value: 1, min: 1,
+        step: Settings.price_step,
+        placeholder: t("search_products.price") %>
+      <%= submit_tag t("search_products.search_button"),
+        class: "btn btn-primary" %>
+      <% if @products.empty? %>
+        <p><%= t "search_products.no_result" %></p>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-<%= will_paginate @products %>
+  </div>
+</div>
+</br>
+</br>
+</br>
+<div class="container">
+  <div id="btntop" style="display: hidden;">
+    <a href="#top" id="top" >
+      <span>
+        <%= link_to t("admin.products.table.add"), new_admin_product_path,
+          class: "btn btn-primary" %>
+      </span>
+    </a>
+  </div>
+  </br>
+  <table class="table table-hover">
+    <thead>
+      <tr class="info">
+        <th><%= t "admin.products.table.id" %></th>
+        <th><%= t "admin.products.table.images" %></th>
+        <th><%= t "admin.products.table.product_name" %></th>
+        <th><%= t "admin.products.table.description" %></th>
+        <th><%= t "admin.products.table.price" %></th>
+        <th><%= t "admin.products.table.quantity" %></th>
+        <th><%= t "admin.products.table.rating" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each_with_index do |product, index| %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td>
+            <% if product.images.present? %>
+              <%= link_to image_tag(product.images,
+                size: Settings.admin.products.images_size), product %>
+            <% else %>
+              <%= link_to image_tag(Settings.admin.products.url,
+                size: Settings.admin.products.images_size), product %>
+            <% end %>
+          </td>
+          <td><%= link_to product.product_name, "#" %></td>
+          <td><%= product.description.truncate(50) %></td>
+          <td><%= product.price %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.rating %></td>
+          <td><%= product.images %></td>
+          <td>
+            <%= link_to t("admin.products.table.show"),
+              admin_product_path(product), class: "btn btn-primary" %>
+            <%= link_to t("admin.products.table.edit"),
+              edit_admin_product_path(product), class: "btn btn-primary" %>
+            <%= link_to t("admin.products.table.delete"),
+              admin_product_path(product), method: :delete,
+              data: {confirm: t("admin.messages.confirm")},
+              class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @products %>
+</div>

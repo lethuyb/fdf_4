@@ -1,34 +1,35 @@
-<div class="search_form" >
-  <div class="col-sm-8 col-sm-offset-2"
-    style="margin-left: 10px; margin-bottom: 10px">
-    <%= form_tag products_path, method: :get, class: "input-group" do %>
-      <%= text_field_tag :product_name, params[:product_name],
-        placeholder: t("search_products.search_placeholder") %>
-      <%= number_field_tag :price, params[:price], step: Settings.price_step,
-        placeholder: t("search_products.price") %>
-      <%= submit_tag t("search_products.search_button"),
-        class: "btn btn-primary" %>
-      <% if @products.empty? %>
-        <p><%= t "search_products.no_result" %></p>
-      <% end %>
-    <% end %>
-  </div>
-</div>
 <div class="container">
-  <div class ="row">
+  <div class="search_form">
+    <div class="col-sm-8 col-sm-offset-2",
+      style="margin-left: 10px; margin-bottom: 5px">
+      <%= form_tag products_path, method: :get, class: "input-group" do %>
+        <%= text_field_tag :product_name, params[:product_name],
+          placeholder: t("search_products.search_placeholder") %>
+        <%= number_field_tag :price, params[:price], value: 1, min: 1,
+          step: Settings.price_step,
+          placeholder: t("search_products.price") %>
+        <%= submit_tag t("search_products.search_button"),
+          class: "btn btn-primary" do %>
+          <i class="glyphicon glyphicon-shopping-cart"></i>
+        <% end %>
+        <% if @products.empty? %>
+          <p><%= t "search_products.no_result" %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class ="row" style="margin-top: 70px">
     <% if @products.present? %>
       <% @products.each do |product| %>
-        <div class="row_food">
-          <% if product.images.present? %>
-            <%= link_to image_tag(product.images), products_path %>
-          <% else %>
-            <%= link_to image_tag(Settings.products.url), product %>
-          <% end %>
-          <h4><%= link_to product.product_name, product_path(product) %></h4>
-          <p><%= product.price %></p>
-          <p><%= product.quantity %></p>
-          <p><%= product.description %></p>
-          <div class="col-xs-4">
+        <div class="row_food" style="margin-bottom:20px">
+          <div class="col">
+            <% if product.images.present? %>
+              <%= link_to image_tag(product.images), products_path %>
+            <% else %>
+              <%= link_to image_tag(Settings.products.url), product %>
+            <% end %>
+            <h4><%= link_to product.product_name, product_path(product) %></h4>
+            <p><%= t "products.quantity" %><%= product.quantity %></p>
             <%= form_for OrderDetail.new, remote: true do |f| %>
               <h4> <class="text-right"><%= t "order.unit_price" %>
                 <span style="color: green">
@@ -38,10 +39,10 @@
               <div class="input-group">
                 <%= f.number_field :quantity_ordered, value: 1,
                   class: "form-control", min: 1 %>
-                <div class="input-group-btn">
                   <%= f.hidden_field :product_id, value: product.id %>
-                  <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-                </div>
+                  <%= f.button :submit, class: "btn btn-primary" do %>
+                    <i class="glyphicon glyphicon-shopping-cart"></i> Add cart
+                  <% end %>
               </div>
             <% end %>
           </div>
@@ -55,7 +56,7 @@
 </div>
 <div>
   <h2 class="text-center" style="color: green">
-    <%= t "order.customer_cart" %>
+    <%= link_to  t("order.customer_cart"), order_path, class: "btn btn-primary" %>
   </h2>
   <h3 class="order-text">
     <%= render "layouts/order_text" %>

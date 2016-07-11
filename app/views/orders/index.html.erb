@@ -1,24 +1,30 @@
-<% provide title: t("order.listing_orders") %>
-<h1><%= t "order.listing_orders" %></h1>
-<table class="table table-hover">
-  <tr>
-    <th><%= t "order.id" %></th>
-    <th><%= t "order.email" %></th>
-    <th><%= t "order.total_pay" %></th>
-    <th><%= t "order.status" %></th>
-    <th><%= t "order.time" %></th>
-    <th></th>
-  </tr>
-  <% @orders.each do |order| %>
+<div class="container">
+  <h1><%= t "order.listing_orders" %></h1>
+  <table class="table table-hover">
     <tr>
-      <td><%= order.id %></td>
-      <td><%= current_user.email %></td>
-      <td><%= order.total_pay %> $</td>
-      <td><%= order.status %></td>
-      <td><%= order.created_at.strftime "%m/%d/%Y %I:%M%p" %></td>
+      <th><%= t "order.id" %></th>
+      <th><%= t "order.email" %></th>
+      <th><%= t "order.total_pay" %></th>
+      <th><%= t "order.status" %></th>
+      <th><%= t "order.time" %></th>
+      <th></th>
     </tr>
-  <% end %>
-</table>
-<div class="text-center">
-  <%= will_paginate %>
-</div>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= current_user.email %></td>
+        <td><%= order.total_pay %> $</td>
+        <% if order.status == true %>
+          <td><%= t "order.payment" %></td>
+        <% else %>
+          <td><%= t "order.not_payment" %></td>
+        <% end %>
+        <td><%= order.created_at.strftime "%m/%d/%Y %I:%M%p" %></td>
+    </tr>
+    <% end %>
+  </table>
+  <div class="text-center">
+    <%= will_paginate %>
+  </div>
+<div>
+

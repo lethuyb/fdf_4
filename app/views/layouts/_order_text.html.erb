@@ -1,5 +1,5 @@
 <div class="cart">
-  <% if current_order.new_record? %>
+  <% if current_order.nil? %>
     <p><%= t "order.no_item" %></p>
   <% else %>
     <p style="text-align: center">

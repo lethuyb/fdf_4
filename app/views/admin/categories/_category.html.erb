@@ -1,12 +1,14 @@
-<%= content_tag_for(:tr, category) do %>
-  <td><%= category.id %></td>
-  <td><%= category.category_name %></td>
-  <td><%= category.products.count %></td>
-  <td>
-    <%= link_to t("admin.edit"), edit_admin_category_path(category),
-      class: "btn btn-primary" %> |
-    <%= link_to t("admin.delete"), admin_category_path(category),
-      method: :delete,
-      data: {confirm: t("admin.confirm")}, class: "btn btn-danger" %>
-  </td>
-<% end %>
+ <div class="container">
+  <%= content_tag_for(:tr, category) do %>
+    <td><%= category.id %></td>
+    <td><%= category.category_name %></td>
+    <td><%= category.products.count %></td>
+    <td>
+      <%= link_to t("admin.edit"), edit_admin_category_path(category),
+        class: "btn btn-primary" %> |
+      <%= link_to t("admin.delete"), admin_category_path(category),
+        method: :delete,
+        data: {confirm: t("admin.confirm")}, class: "btn btn-danger" %>
+    </td>
+  <% end %>
+</div>

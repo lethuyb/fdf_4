@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     if params[:product_name].present?
-      @products = @products.product_name params[:product_name]
+      @products = @products.product_name params[:product_name].strip
     end
     @products = @products.price params[:price] if params[:price].present?
     if @products.present?

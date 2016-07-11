@@ -1,7 +1,10 @@
 class OrderDetailsController < ApplicationController
+  before_action :find_order,  only:[:show, :index]
+
   def create
     @order = current_order
     @order_detail = @order.order_details.new order_detail_params
+    @product_numbers = @order_detail.product.quantity - order_detail_params[:quantity_ordered].to_i
     @order_detail.price_each = Product.find(order_detail_params[:product_id]).price
     @order.save
     session[:order_id] = @order.id
@@ -9,6 +12,10 @@ class OrderDetailsController < ApplicationController
       format.html {redirect_to @order_detail}
       format.js
     end
+  end
+
+  def show
+    @order_details = current_order.order_details
   end
 
   def update

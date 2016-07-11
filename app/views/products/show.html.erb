@@ -1,17 +1,18 @@
-<% provide :title, @product.product_name %>
-<div class="col-md-8">
-  <ul class="products" id="current-product">
-    <%= render "product" %>
-  </ul>
-</div>
+<div class="container">
+  <% provide :title, @product.product_name %>
+  <div class="col-md-8">
+    <ul class="products" id="current-product">
+      <%= render "product" %>
+    </ul>
+  </div>
 
-<div class="row text-center">
-  <table class="table table-hover table-bordered text-center">
-    <%= render "comments/comment", comment: @comments %>
-  </table>
-  <%= will_paginate @comments %>
-  <% unless current_user == nil %>
-    <%= render "comments/form", comment: @comments %>
-  <% end %>
-
+  <div class="row text-center">
+    <table class="table table-hover table-bordered text-center">
+      <%= render "comments/comment", comment: @comments %>
+    </table>
+    <%= will_paginate @comments %>
+    <% unless current_user == nil %>
+      <%= render "comments/form", comment: @comments %>
+    <% end %>
+  </div>
 </div>

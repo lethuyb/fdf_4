@@ -1,50 +1,52 @@
-<div class="row">
-  <%= form_for [:admin, @product] do |f| %>
-    <div class="col-md-12">
-    <%= render "shared/error_messages", object: @product %>
-    <div class="col-md-5 col-xs-12 col-sm-5 ">
-      <div class="form-group">
-        <%= f.label :product_name %>
-        <%= f.text_field :product_name, class: "form-control" %>
+<div class="container">
+  <div class="row">
+    <%= form_for [:admin, @product] do |f| %>
+      <div class="col-md-12">
+      <%= render "shared/error_messages", object: @product %>
+      <div class="col-md-5 col-xs-12 col-sm-5 ">
+        <div class="form-group">
+          <%= f.label :product_name %>
+          <%= f.text_field :product_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price %>
+          <%= f.number_field :price, value: 1, min:1, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :quantity %><br>
+          <%= f.number_field :quantity, value: 1, min:1 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :rating %><br>
+          <%= f.number_field :rating, value: 1, min: 1 %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :price %>
-        <%= f.number_field :price, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description %>
-        <%= f.text_field :description, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :quantity %><br>
-        <%= f.number_field :quantity %>
-      </div>
-      <div class="form-group">
-        <%= f.label :rating %><br>
-        <%= f.text_field :rating %>
+      <div class="col-md-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-5 ">
+        <div class="form-group">
+          <%= f.label :category %><br>
+          <%= f.collection_select :category_id, @categories,
+            :id, :category_name %>
+        </div>
+        <br>
+        <br>
+        <br>
+        <span class="picture">
+          <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png" %>
+        </span>
+        <div class="form-group">
+          <%= f.submit t("admin.submit"), class: "btn btn-primary" %>
+        </div>
+        <div class="form-group">
+          <%= link_to t("admin.back"), admin_products_path,
+            class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-5 col-xs-12 col-sm-5 ">
-      <div class="form-group">
-        <%= f.label :category %><br>
-        <%= f.collection_select :category_id, @categories,
-          :id, :category_name %>
-      </div>
-      <br>
-      <br>
-      <br>
-      <span class="picture">
-        <%= f.file_field :images, accept: "image/jpeg,image/gif,image/png" %>
-      </span>
-      <div class="form-group">
-        <%= f.submit t("admin.submit"), class: "btn btn-primary" %>
-      </div>
-      <div class="form-group">
-        <%= link_to t("admin.back"), admin_products_path,
-          class: "btn btn-primary" %>
-      </div>
-    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

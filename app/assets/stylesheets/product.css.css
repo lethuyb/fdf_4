@@ -3,3 +3,18 @@
   height: 30%;
   float: left
 }
+
+#order_detail_quantity_ordered{
+  width: 120px;
+  margin-left: 5px;
+}
+
+.add_cart{
+  float: left;
+  margin-left: 15px;
+}
+
+.btn-primary{
+  margin-left: 15px;
+  margin-bottom: 10px
+}

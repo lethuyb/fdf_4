@@ -64,7 +64,7 @@ en:
     not_created: "Suggestion not created!"
 
   order:
-    id: "ID"
+    id: "No"
     products_for_sale: "Products for Sale"
     add_to_cart: "Add to Cart"
     unit_price: "Unit Price: "
@@ -86,13 +86,17 @@ en:
     checkout_orders: "Checkout Orders"
     status: "Status"
     time: "Time"
+    order_details: "Show"
     checkout: "Accept Order"
     no_item: "No Item"
     accept: "Items in Cart"
     showdetailorder: "%{size} Items in Cart %{total_pay}"
     customer_cart: "Your Cart"
+    payment: "Payment"
+    not_payment: "Not Payment"
   products:
     no_content: "No Product to show"
+    quantity: "Quantity: "
 
   admin:
     error_message: "You are not authorized to view that page."
@@ -106,6 +110,7 @@ en:
       create_success: "New Category was successfully created!"
       create_error: "Unsuccessful created!"
       add_new_title: "New Category"
+      add_new: "Add new"
       add_new_button: "Create Category"
       delete_success: "Deleted!"
       delete_error: "Can't delete!"
@@ -115,14 +120,14 @@ en:
       table:
         no_categories: "Category is empty. Create new category now!"
         th:
-          index: "No."
+          id: "STT."
           name: "Name"
           quantity: "Number of Products"
           action: "Action"
     products:
       title: "Products"
       table:
-        id: "ID"
+        id: "STT."
         images: "Images"
         product_name: "Name"
         description: "Description"
@@ -131,12 +136,14 @@ en:
         rating: "Rating"
         edit: "Edit"
         delete: "Delete"
-        add: "Add"
+        add: "Add new"
         addcart: "Buy"
-
     orders:
+      title: "Orders"
+      payment: "Payment"
+      not_payment: "Not Payment"
       table:
-        id: "ID"
+        id: "STT."
         total: "Total"
         status: "Status"
         created_at: "Creates_at"
@@ -147,7 +154,7 @@ en:
 
     suggests:
       table:
-        id: "ID"
+        id: "STT."
         suggests: "Suggestion"
         user_id: "Name Customer"
 
@@ -161,13 +168,11 @@ en:
     back: "Back"
     suggestion:
       title: "Suggestions"
-    orders:
-      title: "Orders"
 
     users:
       title: "All Users"
       table:
-        id: "ID"
+        id: "STT."
         name: "Name"
         address: "Address"
         phone: "Phone number"

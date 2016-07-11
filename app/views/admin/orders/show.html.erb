@@ -1,21 +1,21 @@
-<div class="container-fluid">
-  <div class="row">
-    <% @order.order_details.each do |order_detail| %>
-      <h3><%= t "admin.orders.table.quantilyOrdered" %>
-        <%= order_detail.quantity_ordered %>
-      </h3>
-      <p> <%= t "admin.orders.table.priceEach" %>
-        <%= order_detail.price_each %>
-      </p>
-      <p> <%= t "admin.orders.table.name" %>
-        <%= order_detail.product.product_name %>
-      </p>
+<table class="table table-hover">
+  <thead>
+    <tr >
+      <th><%= t "admin.orders.table.id" %></th>
+      <th><%= t "admin.orders.table.quantilyOrdered" %></th>
+      <th><%= t "admin.orders.table.priceEach" %></th>
+      <th><%=  t "admin.orders.table.name" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_details.each_with_index do |order_detail, index| %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= order_detail.quantity_ordered %></td>
+        <td><%= order_detail.quantity_ordered %></td>
+        <td><%= order_detail.product.product_name %></td>
+      </tr>
       <br>
     <% end %>
-  </div>
-  <br>
-  <%= link_to t("admin.orders.edit.edit"), "#",
-    class: "btn btn-primary" %> |
-  <%= link_to t("admin.orders.edit.back"), admin_order_path,
-    class: "btn btn-primary" %>
-</div>
+  </tbody>
+</table>
